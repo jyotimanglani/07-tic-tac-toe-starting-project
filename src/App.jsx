@@ -5,14 +5,24 @@ import Log from "./components/Log";
 import { WINNING_COMBINATIONS } from "./WinningCombination";
 import GameOver from "./components/GameOver";
 
+// function deriveActivePlayer(gameTurns) {
+//   let currentPlayer = "X";
+
+//   if (gameTurns.length > 0 && gameTurns[0].player === "X") {
+//     currentPlayer = "O";
+//   }
+
+//   return currentPlayer;
+// }
+
 function deriveActivePlayer(gameTurns) {
-  let currentPlayer = "X";
+  const lastTurn = gameTurns.length > 0 ? gameTurns[0] : null;
 
-  if (gameTurns.length > 0 && gameTurns[0].player === "X") {
-    currentPlayer = "O";
+  if (lastTurn && lastTurn.player === "X") {
+    return "O";
+  } else {
+    return "X";
   }
-
-  return currentPlayer;
 }
 
 const initialGameBoard = [
